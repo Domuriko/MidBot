@@ -1,6 +1,7 @@
 /botconfig.json
-/publicProfiles.json
-/midpointProfiles.json
-/midpointStats.json
-/publicStats.json
-/totalDrafts.json
+publicProfiles.json
+midpointProfiles.json
+midpointStats.json
+publicStats.json
+totalDrafts.json
+midpointProfiles.json
