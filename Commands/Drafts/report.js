@@ -102,12 +102,48 @@ module.exports = {
                     }
                 }
 
+                var oldPercentage1;
+                var oldPercentage2;
+                var oldPercentage3;
+                var oldPercentage4;
+                var oldPercentage5;
+                var oldPercentage6;
+                var oldPercentage7;
+                var oldPercentage8;
+
+                var newPer1;
+                var newPer2;
+                var newPer3;
+                var newPer4;
+                var newPer5;
+                var newPer6;
+                var newPer7;
+                var newPer8;
+
+                oldStats[0] > 100.0 ? oldPercentage1 = 100.0 : oldPercentage1 = oldStats[0];
+                oldStats[1] > 100.0 ? oldPercentage2 = 100.0 : oldPercentage2 = oldStats[1];
+                oldStats[2] > 100.0 ? oldPercentage3 = 100.0 : oldPercentage3 = oldStats[2];
+                oldStats[3] > 100.0 ? oldPercentage4 = 100.0 : oldPercentage4 = oldStats[3];
+                oldStats[4] > 100.0 ? oldPercentage5 = 100.0 : oldPercentage5 = oldStats[4];
+                oldStats[5] > 100.0 ? oldPercentage6 = 100.0 : oldPercentage6 = oldStats[5];
+                oldStats[6] > 100.0 ? oldPercentage7 = 100.0 : oldPercentage7 = oldStats[6];
+                oldStats[7] > 100.0 ? oldPercentage8 = 100.0 : oldPercentage8 = oldStats[7];
+                
+                publicStats[p1.id].percent > 100.0 ? newPer1 = 100.0 : newPer1 = publicStats[p1.id].percent;
+                publicStats[p2.id].percent > 100.0 ? newPer2 = 100.0 : newPer2 = publicStats[p2.id].percent;
+                publicStats[p3.id].percent > 100.0 ? newPer3 = 100.0 : newPer3 = publicStats[p3.id].percent;
+                publicStats[p4.id].percent > 100.0 ? newPer4 = 100.0 : newPer4 = publicStats[p4.id].percent;
+                publicStats[p5.id].percent > 100.0 ? newPer5 = 100.0 : newPer5 = publicStats[p5.id].percent;
+                publicStats[p6.id].percent > 100.0 ? newPer6 = 100.0 : newPer6 = publicStats[p6.id].percent;
+                publicStats[p7.id].percent > 100.0 ? newPer7 = 100.0 : newPer7 = publicStats[p7.id].percent;
+                publicStats[p8.id].percent > 100.0 ? newPer8 = 100.0 : newPer8 = publicStats[p8.id].percent;
+
                 Reply
                 .setColor('Blue')
                 .setTitle('Draft Results')
                 .addFields(
-                    { name: 'Team Alpha', value: `${p1.tag}: ${oldStats[0]}% -> ${publicStats[p1.id].percent}%\n${p2.tag}: ${oldStats[1]}% -> ${publicStats[p2.id].percent}%\n${p3.tag}: ${oldStats[2]}% -> ${publicStats[p3.id].percent}%\n${p4.tag}: ${oldStats[3]}% -> ${publicStats[p4.id].percent}%`},
-                    { name: 'Team Beta', value: `${p5.tag}: ${oldStats[4]}% -> ${publicStats[p5.id].percent}%\n${p6.tag}: ${oldStats[5]}% -> ${publicStats[p6.id].percent}%\n${p7.tag}: ${oldStats[6]}% -> ${publicStats[p7.id].percent}%\n${p8.tag}: ${oldStats[7]}% -> ${publicStats[p8.id].percent}%`}
+                    { name: 'Team Alpha', value: `${p1.tag}: ${oldPercentage1}% -> ${newPer1}%\n${p2.tag}: ${oldPercentage2}% -> ${newPer2}%\n${p3.tag}: ${oldPercentage3}% -> ${newPer3}%\n${p4.tag}: ${oldPercentage4}% -> ${newPer4}%`},
+                    { name: 'Team Beta', value: `${p5.tag}: ${oldPercentage5}% -> ${newPer5}%\n${p6.tag}: ${oldPercentage6}% -> ${newPer6}%\n${p7.tag}: ${oldPercentage7}% -> ${newPer7}%\n${p8.tag}: ${oldPercentage8}% -> ${newPer8}%`}
                 );
 
                 if(!totalDrafts["public"]) {
@@ -171,7 +207,7 @@ module.exports = {
                         let newPercentage = (midpointStats[players[i].id].gamesWon / midpointStats[players[i].id].gamesPlayed) * 100 + (midpointStats[players[i].id].draftsWon / midpointStats[players[i].id].draftsPlayed) * 100;
                         let initialPercentage = newPercentage / 2;
                         let finalPercentage = initialPercentage + ((midpointStats[players[i].id].draftsPlayed / totalDrafts["public"].allDrafts) / 5)
-                        midpointStats[players[i].id].percent = Clamp(finalPercentage, 0, 100);
+                        midpointStats[players[i].id].percent = finalPercentage;
                         
                         fs.writeFile('./midpointStats.json', JSON.stringify(midpointStats), (err) => { if (err) console.log(err)});
                     }
@@ -201,18 +237,54 @@ module.exports = {
                         let newPercentage = (midpointStats[players[i].id].gamesWon / midpointStats[players[i].id].gamesPlayed) * 100 + (midpointStats[players[i].id].draftsWon / midpointStats[players[i].id].draftsPlayed) * 100;
                         let initialPercentage = newPercentage / 2;
                         let finalPercentage = initialPercentage + ((midpointStats[players[i].id].draftsPlayed / totalDrafts["public"].allDrafts) / 5)
-                        midpointStats[players[i].id].percent = Clamp(finalPercentage, 0, 100);
+                        midpointStats[players[i].id].percent = finalPercentage;
                         
                         fs.writeFile('./midpointStats.json', JSON.stringify(midpointStats), (err) => { if (err) console.log(err)});
                     }
                 }
 
+                var oldPercentage1;
+                var oldPercentage2;
+                var oldPercentage3;
+                var oldPercentage4;
+                var oldPercentage5;
+                var oldPercentage6;
+                var oldPercentage7;
+                var oldPercentage8;
+
+                var newPer1;
+                var newPer2;
+                var newPer3;
+                var newPer4;
+                var newPer5;
+                var newPer6;
+                var newPer7;
+                var newPer8;
+
+                oldStats[0] > 100.0 ? oldPercentage1 = 100.0 : oldPercentage1 = oldStats[0];
+                oldStats[1] > 100.0 ? oldPercentage2 = 100.0 : oldPercentage2 = oldStats[1];
+                oldStats[2] > 100.0 ? oldPercentage3 = 100.0 : oldPercentage3 = oldStats[2];
+                oldStats[3] > 100.0 ? oldPercentage4 = 100.0 : oldPercentage4 = oldStats[3];
+                oldStats[4] > 100.0 ? oldPercentage5 = 100.0 : oldPercentage5 = oldStats[4];
+                oldStats[5] > 100.0 ? oldPercentage6 = 100.0 : oldPercentage6 = oldStats[5];
+                oldStats[6] > 100.0 ? oldPercentage7 = 100.0 : oldPercentage7 = oldStats[6];
+                oldStats[7] > 100.0 ? oldPercentage8 = 100.0 : oldPercentage8 = oldStats[7];
+
+                midpointStats[p1.id].percent > 100.0 ? newPer1 = 100.0 : newPer1 = midpointStats[p1.id].percent;
+                midpointStats[p2.id].percent > 100.0 ? newPer2 = 100.0 : newPer2 = midpointStats[p2.id].percent;
+                midpointStats[p3.id].percent > 100.0 ? newPer3 = 100.0 : newPer3 = midpointStats[p3.id].percent;
+                midpointStats[p4.id].percent > 100.0 ? newPer4 = 100.0 : newPer4 = midpointStats[p4.id].percent;
+                midpointStats[p5.id].percent > 100.0 ? newPer5 = 100.0 : newPer5 = midpointStats[p5.id].percent;
+                midpointStats[p6.id].percent > 100.0 ? newPer6 = 100.0 : newPer6 = midpointStats[p6.id].percent;
+                midpointStats[p7.id].percent > 100.0 ? newPer7 = 100.0 : newPer7 = midpointStats[p7.id].percent;
+                midpointStats[p8.id].percent > 100.0 ? newPer8 = 100.0 : newPer8 = midpointStats[p8.id].percent;
+
                 Reply
                 .setColor('Blue')
                 .setTitle('Draft Results')
                 .addFields(
-                    { name: 'Team Alpha', value: `${p1.tag}: ${oldStats[0]}% -> ${midpointStats[p1.id].percent}%\n${p2.tag}: ${oldStats[1]}% -> ${midpointStats[p2.id].percent}%\n${p3.tag}: ${oldStats[2]}% -> ${midpointStats[p3.id].percent}%\n${p4.tag}: ${oldStats[3]}% -> ${midpointStats[p4.id].percent}%`},
-                    { name: 'Team Beta', value: `${p5.tag}: ${oldStats[4]}% -> ${midpointStats[p5.id].percent}%\n${p6.tag}: ${oldStats[5]}% -> ${midpointStats[p6.id].percent}%\n${p7.tag}: ${oldStats[6]}% -> ${midpointStats[p7.id].percent}%\n${p8.tag}: ${oldStats[7]}% -> ${midpointStats[p8.id].percent}%`}
+                    { name: 'Team Alpha', value: `${p1.tag}: ${oldPercentage1}% -> ${newPer1}%\n${p2.tag}: ${oldPercentage2}% -> ${newPer2}%\n${p3.tag}: ${oldPercentage3}% -> ${newPer3}%\n${p4.tag}: ${oldPercentage4}% -> ${newPer4}%`},
+                    { name: 'Team Beta', value: `${p5.tag}: ${oldPercentage5}% -> ${newPer5}%\n${p6.tag}: ${oldPercentage6}% -> ${newPer6}%\n${p7.tag}: ${oldPercentage7}% -> ${newPer7}%\n${p8.tag}: ${oldPercentage8}% -> ${newPer8}%`}
                 );
 
                 if(!totalDrafts["midpoint"]) {
@@ -231,5 +303,3 @@ module.exports = {
         return message.channel.send({embeds: [Reply]});
     }
 }
-
-const Clamp = (num, min, max) => Math.max(min,Math.min(max,num));
